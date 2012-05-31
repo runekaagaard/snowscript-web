@@ -1,0 +1,142 @@
+Whitespace:
+    header_level: 2    
+    description: >
+        Snowscript has significant whitespace, meaning that the code structure is 
+        managed by indenting/dedenting and not by using brackets ({)}. Whitespace 
+        is not significant inside comments, strings and brackets (() and []).
+    snowscript: |
+        fn find_person(person)
+            <- access_third_eye(
+                person.name,
+                person.last_known_location
+            )
+    php: |
+        function find_person($person) {
+            return access_third_eye(
+                $person->name,
+                $person->last_known_location
+            );
+        }
+Comments:
+    header_level: 2
+    description: > 
+    snowscript: >
+        # Single line.
+        echo a
+        # Single line as docblock #
+        echo b
+        # This is a comment,
+        
+          spanning multiple lines.
+    php::
+        // Single line.
+        /**
+         * Single line as docblock. 
+         */
+        /**
+         * This is a comment,
+         *
+         * spanning multiple lines. 
+         */
+Strings:
+    header_level: 2
+    description: |
+        There are four kind of strings: '"""', '"', "'''" and "'". Whitespace before the 
+        current indentation level is stripped. Strings can be concatenated using the "%"
+        operator.
+    snowscript: echo "I am" % " legend!";
+    php: echo "I am" . " legend!";
+Quoted:
+    header_level: 3
+    description: Code inside "{}" adds their value to the string.
+    snowscript: |
+        fn travel
+            echo "
+            The {animal} went to {world.place()}
+            with his {NUM} friends. 
+            "
+
+        """<a href="https://snowscript.org">Snowscript</a>\n"""
+    php: |
+        function travel() {
+            echo "The " . $animal . " went to " . $world->place() . "\n"
+            " with his " . NUM  . " friends.";
+            
+        }
+        "<a href=\"https://snowscript.org\">Snowscript</a>\n";
+Unquoted:
+    header_level: 3
+    description: null
+    snowscript: |
+        'No {magic} here\n'
+        '''{nor()} here.'''
+    php: |
+        'No {magic} here\n';
+        '''{nor()} here.''';
+Arrays:
+    header_level: 2
+    description: >
+        Array are defined inside square brackets "[]". Items can be separated by 
+        "," or by using whitespace. 
+
+        Keys are stringy when using "=" as a separator, and interpreted when 
+        using ":". 
+    snowscript: |
+        pianists = ["McCoy Tyner", "Fred Hersch", "Bill Evans"]
+        name = "Heroes"
+        series = [
+            name:
+                genre = "Science Fiction"
+                creator: "Tim Kring"
+                seasons = 4
+            Game Of Thrones =
+                genre = "Medieval fantasy"
+                creator = "David Benioff"
+                seasons = 2
+        ]
+    php: |
+        $pianists = array("McCoy Tyner", "Fred Hersch", "Bill Evans");
+        $name = "Heroes";
+        $series = array(
+            $name => array(
+                'genre' => "Science Fiction",
+                'creator' => "Tim Kring",
+                'seasons' => 4,
+            ),
+            "Game Of Thrones" => array(
+                'genre' => "Medieval fantasy",
+                'creator' => "David Benioff",
+                'seasons' => 2,
+            ),
+        );
+Loops:
+    header_level: 2
+    description: null
+    snowscript: |
+        for title, data in flowers
+            echo "{data.id}: title"
+        for &n in numbers
+            n *= 2
+
+        for i in 1 to 10 step 2
+            echo i
+        for i in 10 downto 1
+            echo i
+    php: |
+        foreach ($flowers as $title => $data) {
+            echo $data->id . ": " . $title;
+        }
+        unset($title, $data);
+        foreach ($numbers as $n) {
+            $n *= 2;
+        }
+        unset($n);
+
+        for ($i=1, $i <= 10, $i+=2) {
+            echo $i;
+        }
+        unset($i);
+        for ($i=10, $i >= 0, --$i) {
+            echo $i;
+        }
+        unset($i);

@@ -1,0 +1,82 @@
+<!DOCTYPE>
+<html lang=en>
+    <head>
+        <meta charset=utf-8 />
+        <title>Snowscript | Making PHP fun again</title>
+        <link rel=stylesheet href="static/snow.css" />
+        <script type="text/javascript" src="static/prettify.js"></script>
+    </head>
+    <body onload="prettyPrint()">
+        <header class="=row">
+            <img class="_left _right-20" src="static/logo.png" alt id="logo">
+            <hgroup class="_fix-float _bottom-30">
+                <h1 class="gill-sans _size-1 _res-size-4">Snowscript</h1>
+                <h2>A concise, dry and beautiful language that compiles to PHP</h2>
+            </hgroup>
+        </header>
+        
+        <div class="=row">
+            <div class="_right _left-30 _res-break _res-left-0 _res-bottom-20">
+                <a href="http://example.com" class="gill-sans button _size-4 _res-size-5 _bottom-10">
+                    Read the <strong>docs</strong>
+                </a><br>
+                <a href="https://github.com/runekaagaard/snowscript" class="gill-sans button _size-4 _res-size-5">
+                    <strong>Get</strong> the code
+                </a>
+            </div>
+            <p class="_size-4 _res-size-0 _bottom-30 _fix-float _res-bottom-20">
+                Snow is a little language that compiles to PHP. It has its own 
+                syntax inspired by Python, Ruby, Go and Scala that strives to 
+                be DRY, clean and easy to read as well as write. For those 
+                familiar with 
+                <a target=_blank href=http://jashkenas.github.com/coffee-script/>
+                Coffescript</a> you could say that Snow is to PHP what 
+                Coffeescript is to Javascript.</p>
+                
+            <ul class="=inline-list _bottom-30 _res-bottom-20">
+                <li>
+                    Kills the dreaded <tt>$</tt>, <tt>$this</tt> and 
+                    <tt>self</tt>.  </li><li>Has chainable receiver functions. 
+                </li>
+                <li>Can coexist naturally with existing non-Snow PHP code. 
+                </li>
+                <li>Can compile existing PHP to snow. </li>
+                <li>Is very well tested with PHPT. </li>
+            </ul>
+        </div>
+        
+        {% for title,section in sections.iteritems() %}
+        <h{{ section.header_level }} class="gill-sans _size-3 _res-size-4 =row _text-center">
+            {{ title }}
+        </h{{ section.header_level }}>
+        {% if section.description %}<p>{{ section.description }}</p>{% endif %}
+        <div class="=box">
+            <table class="center">
+            <thead>
+                <tr> 
+                    <th class="gill-sans _size-5">Snowscript</th> 
+                    <th class="gill-sans _size-5">PHP</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2">{{ section.snowscript }}</pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">{{ section.php }}</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        {% endfor %}
+                
+        <div class="=row _text-center">
+            <a href="http://example.com" class="gill-sans button _res-bottom-10">Read the <strong>docs</strong></a>
+            <a href="https://github.com/runekaagaard/snowscript" class="gill-sans button"><strong>Get</strong> the code</a>
+        </div>
+        <footer class="=row _text-center _size-6">A project by <a href="https://github.com/runekaagaard">Rune Kaagaard</a>. Design by <a target=_blank href=http://rolando.pe/>Rolando Murillo</a>.</footer>
+    </body>
+</html>
+

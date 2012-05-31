@@ -4,8 +4,9 @@
         <meta charset=utf-8 />
         <title>Snowscript | Making PHP fun again</title>
         <link rel=stylesheet href="static/snow.css" />
+        <script type="text/javascript" src="static/prettify.js"></script>
     </head>
-    <body>
+    <body onload="prettyPrint()">
         <header class="=row">
             <img class="_left _right-20" src="static/logo.png" alt id="logo">
             <hgroup class="_fix-float _bottom-30">
@@ -13,15 +14,43 @@
                 <h2>A concise, dry and beautiful language that compiles to PHP</h2>
             </hgroup>
         </header>
+        
         <div class="=row">
             <div class="_right _left-30 _res-break _res-left-0 _res-bottom-20">
-                <a href="http://example.com" class="gill-sans button _size-4 _res-size-5 _bottom-10">Read the <strong>docs</strong></a><br>
-                <a href="https://github.com/runekaagaard/snowscript" class="gill-sans button _size-4 _res-size-5"><strong>Get</strong> the code</a>
+                <a href="http://example.com" class="gill-sans button _size-4 _res-size-5 _bottom-10">
+                    Read the <strong>docs</strong>
+                </a><br>
+                <a href="https://github.com/runekaagaard/snowscript" class="gill-sans button _size-4 _res-size-5">
+                    <strong>Get</strong> the code
+                </a>
             </div>
-            <p class="_size-4 _res-size-0 _bottom-30 _fix-float _res-bottom-20">Snow is a little language that compiles to PHP. It has its own syntax inspired by Python, Ruby, Go and Scala that strives to be DRY, clean and easy to read as well as write. For those familiar with <a target=_blank href=http://jashkenas.github.com/coffee-script/>Coffescript</a> you could say that Snow is to PHP what Coffeescript is to Javascript.</p>
-            <ul class="=inline-list _bottom-30 _res-bottom-20"><li>Kills the dreaded <tt>$</tt>, <tt>$this</tt> and <tt>self</tt>.  </li><li>Has chainable receiver functions. </li><li>Can coexist naturally with existing non-Snow PHP code. </li><li>Can compile existing PHP to snow. </li><li>Is very well tested with PHPT. </li></ul>
+            <p class="_size-4 _res-size-0 _bottom-30 _fix-float _res-bottom-20">
+                Snow is a little language that compiles to PHP. It has its own 
+                syntax inspired by Python, Ruby, Go and Scala that strives to 
+                be DRY, clean and easy to read as well as write. For those 
+                familiar with 
+                <a target=_blank href=http://jashkenas.github.com/coffee-script/>
+                Coffescript</a> you could say that Snow is to PHP what 
+                Coffeescript is to Javascript.</p>
+                
+            <ul class="=inline-list _bottom-30 _res-bottom-20">
+                <li>
+                    Kills the dreaded <tt>$</tt>, <tt>$this</tt> and 
+                    <tt>self</tt>.  </li><li>Has chainable receiver functions. 
+                </li>
+                <li>Can coexist naturally with existing non-Snow PHP code. 
+                </li>
+                <li>Can compile existing PHP to snow. </li>
+                <li>Is very well tested with PHPT. </li>
+            </ul>
         </div>
-        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">Quick tour</h2>
+        
+        
+        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Whitespace
+        </h2>
+        <p>Snowscript has significant whitespace, meaning that the code structure is  managed by indenting/dedenting and not by using brackets ({)}. Whitespace  is not significant inside comments, strings and brackets (() and []).
+</p>
         <div class="=box">
             <table class="center">
             <thead>
@@ -31,9 +60,33 @@
                 </tr> 
             </thead>
             <tbody>
-                <tr><td valign="top" cellpadding="0"> <p></p><pre class="prettyprint"><span class="lit">@str</span><span class="pln"> title</span><span class="pun">=</span><span class="kwd">null</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># The title shown above the table.</span><span class="pln"><br></span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SumTable</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># Renders a html table of numbers.</span><span class="com"><br>&nbsp; &nbsp; &nbsp; &nbsp; A sum column </span><span class="com">is</span><span class="com"> added to each row </span><span class="com">and</span><span class="com"> the total sum <br>&nbsp; &nbsp; &nbsp; &nbsp; of all cells </span><span class="com">is</span><span class="com"> shown on top</span><span class="pun">.</span><span class="pln"> &nbsp; &nbsp;<br>&nbsp; &nbsp; pri <br>&nbsp; &nbsp; &nbsp; &nbsp; title_default </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">(</span><span class="str">'Untitled'</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; title </span><span class="pun">=</span><span class="pln"> title </span><span class="pun">?!</span><span class="pln"> </span><span class="pun">.</span><span class="pln">title_default<br>&nbsp; &nbsp; &nbsp; &nbsp; rows </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; sum </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; </span><span class="lit">@arr</span><span class="pln"> row<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com"># List of integers.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">[!</span><span class="pln">_</span><span class="pun">-&gt;</span><span class="pln">empty</span><span class="pun">:</span><span class="pln"> </span><span class="str">"$row cannot be empty."</span><span class="pun">]</span><span class="pln"><br>&nbsp; &nbsp; fn add_row</span><span class="pun">(</span><span class="pln">row</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com"># Append a table row.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; n </span><span class="pun">=</span><span class="pln"> row</span><span class="pun">-&gt;</span><span class="pln">count<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> col </span><span class="kwd">in</span><span class="pln"> row<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; row</span><span class="pun">[</span><span class="pln">n</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> col </span><span class="pun">|</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">.</span><span class="pln">sum </span><span class="pun">+=</span><span class="pln"> row</span><span class="pun">[</span><span class="pln">n</span><span class="pun">]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">.</span><span class="pln">rows</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> row<br><br>&nbsp; &nbsp; fn render<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com"># Returns table as html.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> row </span><span class="kwd">in</span><span class="pln"> </span><span class="pun">.</span><span class="pln">rows<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; html </span><span class="pun">%=</span><span class="pln"> </span><span class="str">"&lt;table&gt;"</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="pun">.</span><span class="pln">render_row</span><span class="pun">(</span><span class="pln">row</span><span class="pun">)</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="str">"&lt;/table&gt;"</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">&lt;-</span><span class="pln"> </span><span class="str">"&lt;h2&gt;{.title}: {.sum}&lt;/h2&gt;"</span><span class="pln"> </span><span class="pun">%</span><span class="pln"> html<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; pri fn render_row</span><span class="pun">(</span><span class="pln">row</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> col </span><span class="kwd">in</span><span class="pln"> row<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; html </span><span class="pun">%=</span><span class="pln"> </span><span class="str">"&lt;tr&gt;"</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="str">"&lt;td&gt;{col}&lt;/td&gt;"</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="str">"&lt;/tr&gt;"</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">&lt;-</span><span class="pln"> html</span></pre><p></p></td> <td valign="top" cellpadding="0"> <p></p><pre class="prettyprint"><span class="com">/**<br>&nbsp;* Renders a html table of numbers.<br>&nbsp;* &nbsp; &nbsp; &nbsp; <br>&nbsp;* A sum column is added to each row and the total sum of <br>&nbsp;* all cells is shown on top.<br>&nbsp;*/</span><span class="pln"><br></span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SumTable</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $title_default</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $title</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $rows </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $sum </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">/**<br>&nbsp; &nbsp; &nbsp;* Constructor.<br>&nbsp; &nbsp; &nbsp;*<br>&nbsp; &nbsp; &nbsp;* @param string $title<br>&nbsp; &nbsp; &nbsp;* &nbsp; The title shown above the table.<br>&nbsp; &nbsp; &nbsp;*/</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> __construct</span><span class="pun">(</span><span class="pln">$title</span><span class="pun">=</span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $this</span><span class="pun">-&gt;</span><span class="pln">title_default </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">(</span><span class="str">'Untitled'</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $this</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$title</span><span class="pun">)</span><span class="pln"> <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">?</span><span class="pln"> $title <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">:</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">title_default</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">/**<br>&nbsp; &nbsp; &nbsp;* Append a table row.<br>&nbsp; &nbsp; &nbsp;*<br>&nbsp; &nbsp; &nbsp;* @param array $row<br>&nbsp; &nbsp; &nbsp;* &nbsp; List of integers.<br>&nbsp; &nbsp; &nbsp;*/</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> add_row</span><span class="pun">(</span><span class="pln">$row</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$row</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">throw</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">InvalidArgumentException</span><span class="pun">(</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="str">'$row cannot be empty'</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $n </span><span class="pun">=</span><span class="pln"> count</span><span class="pun">(</span><span class="pln">$row</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $row</span><span class="pun">[</span><span class="pln">$n</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$row </span><span class="kwd">as</span><span class="pln"> $col</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $row</span><span class="pun">[</span><span class="pln">$n</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> $col</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $this</span><span class="pun">-&gt;</span><span class="pln">sum </span><span class="pun">+=</span><span class="pln"> $row</span><span class="pun">[</span><span class="pln">$n</span><span class="pun">];</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $this</span><span class="pun">-&gt;</span><span class="pln">rows</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> $row</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">/**<br>&nbsp; &nbsp; &nbsp;* Returns table as html.<br>&nbsp; &nbsp; &nbsp;*/</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> render</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $html </span><span class="pun">=</span><span class="pln"> </span><span class="str">'&lt;table&gt;'</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">rows </span><span class="kwd">as</span><span class="pln"> $row</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $html </span><span class="pun">.=</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">render_row</span><span class="pun">(</span><span class="pln">$row</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $html </span><span class="pun">.=</span><span class="pln"> </span><span class="str">'&lt;/table&gt;'</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="str">"&lt;h2&gt;$this-&gt;title: $this-&gt;sum&lt;/h2&gt;"</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $html</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> render_row</span><span class="pun">(</span><span class="pln">$row</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $html </span><span class="pun">=</span><span class="pln"> </span><span class="str">'&lt;tr&gt;'</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$row </span><span class="kwd">as</span><span class="pln"> $col</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $html </span><span class="pun">.=</span><span class="pln"> </span><span class="str">"&lt;td&gt;$col&lt;/td&gt;"</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $html </span><span class="pun">.=</span><span class="pln"> </span><span class="str">'&lt;/tr&gt;'</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> $html</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre><p></p></td></tr></tbody></table>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='kwd'>fn</span><span class='pln'> </span><span class='pln'>find_person</span><span class='pun'>(</span><span class='pln'>person</span><span class='pun'>)</span><span class='pln'>
+</span><span class='pln'>    </span><span class='pun'><-</span><span class='pln'> </span><span class='pln'>access_third_eye</span><span class='pun'>(</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>person</span><span class='pun'>.</span><span class='pln'>name</span><span class='pun'>,</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>person</span><span class='pun'>.</span><span class='pln'>last_known_location</span><span class='pln'>
+</span><span class='pln'>    </span><span class='pun'>)</span><span class='pln'>
+</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">function find_person($person) {
+    return access_third_eye(
+        $person->name,
+        $person->last_known_location
+    );
+}
+</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
         </div>
-        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">Assignments</h2>
+        
+        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Comments
+        </h2>
+        
         <div class="=box">
             <table class="center">
             <thead>
@@ -43,10 +96,221 @@
                 </tr> 
             </thead>
             <tbody>
-                <tr><td valign="top" cellpadding="0"> <p></p><pre class="prettyprint"><span class="lit">@str</span><span class="pln"> title</span><span class="pun">=</span><span class="kwd">null</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># The title shown above the table.</span><span class="pln"><br></span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SumTable</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># Renders a html table of numbers.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; A sum column </span><span class="kwd">is</span><span class="pln"> added to each row </span><span class="kwd">and</span><span class="pln"> the total sum <br>&nbsp; &nbsp; &nbsp; &nbsp; of all cells </span><span class="kwd">is</span><span class="pln"> shown on top</span><span class="pun">.</span><span class="pln"> &nbsp; &nbsp;<br>&nbsp; &nbsp; pri <br>&nbsp; &nbsp; &nbsp; &nbsp; title_default </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">(</span><span class="str">'Untitled'</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; title </span><span class="pun">=</span><span class="pln"> title </span><span class="pun">?!</span><span class="pln"> </span><span class="pun">.</span><span class="pln">title_default<br>&nbsp; &nbsp; &nbsp; &nbsp; rows </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; sum </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span></td>
-                    
-                <td valign="top" cellpadding="0"> <p></p><pre class="prettyprint"><span class="com">/**<br>&nbsp;* Renders a html table of numbers.<br>&nbsp;* &nbsp; &nbsp; &nbsp; <br>&nbsp;* A sum column is added to each row and the total sum of <br>&nbsp;* all cells is shown on top.<br>&nbsp;*/</span><span class="pln"><br></span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SumTable</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $title_default</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $title</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $rows </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">private</span><span class="pln"> $sum </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">/**<br>&nbsp; &nbsp; &nbsp;* Constructor.<br>&nbsp; &nbsp; &nbsp;*<br>&nbsp; &nbsp; &nbsp;* @param string $title<br>&nbsp; &nbsp; &nbsp;* &nbsp; The title shown above the table.<br>&nbsp; &nbsp; &nbsp;*/</span><span class="pln"><br></span><span class="pun">}</span></pre><p></p></td></tr></tbody></table>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='pun'># Single line. echo a # Single line as docblock # echo b # This is a comment,</span><span class='pln'>
+
+</span><span class='pln'>  </span><span class='pln'>spanning</span><span class='pln'> </span><span class='pln'>multiple</span><span class='pln'> </span><span class='pln'>lines</span><span class='pun'>.</span><span class='pln'>
+</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint"></pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
         </div>
+        
+        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Strings
+        </h2>
+        <p>There are four kind of strings: '"""', '"', "'''" and "'". Whitespace before the 
+current indentation level is stripped. Strings can be concatenated using the "%"
+operator.
+</p>
+        <div class="=box">
+            <table class="center">
+            <thead>
+                <tr> 
+                    <th class="gill-sans _size-5">Snowscript</th> 
+                    <th class="gill-sans _size-5">PHP</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>I am</span><span class='str'>"</span><span class='pln'> </span><span class='pun'>%</span><span class='pln'> </span><span class='str'>"</span><span class='str'> legend!</span><span class='str'>"</span><span class='pun'>;</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">echo "I am" . " legend!";</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+        <h3 class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Quoted
+        </h3>
+        <p>Code inside "{}" adds their value to the string.</p>
+        <div class="=box">
+            <table class="center">
+            <thead>
+                <tr> 
+                    <th class="gill-sans _size-5">Snowscript</th> 
+                    <th class="gill-sans _size-5">PHP</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='kwd'>fn</span><span class='pln'> </span><span class='pln'>travel</span><span class='pln'>
+</span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>
+    The </span><span class='str'>{</span><span class='pln'>animal</span><span class='str'>}</span><span class='str'> went to </span><span class='str'>{</span><span class='pln'>world</span><span class='pun'>.</span><span class='pln'>place</span><span class='pun'>(</span><span class='pun'>)</span><span class='str'>}</span><span class='str'>
+    with his </span><span class='str'>{</span><span class='pln'>NUM</span><span class='str'>}</span><span class='str'> friends. 
+    </span><span class='str'>"</span><span class='pln'>
+
+</span><span class='str'>"</span><span class='str'>"</span><span class='str'>"</span><span class='str'><a href=</span><span class='str'>"</span><span class='pln'>https</span><span class='pun'>:</span><span class='pun'>/</span><span class='pun'>/</span><span class='pln'>snowscript</span><span class='pun'>.</span><span class='pln'>org</span><span class='str'>"</span><span class='str'>>Snowscript</a></span><span class='str'>\</span><span class='str'>n</span><span class='str'>"</span><span class='str'>"</span><span class='str'>"</span><span class='pln'>
+</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">function travel() {
+    echo "The " . $animal . " went to " . $world->place() . "\n"
+    " with his " . NUM  . " friends.";
+    
+}
+"<a href=\"https://snowscript.org\">Snowscript</a>\n";
+</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+        <h3 class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Unquoted
+        </h3>
+        
+        <div class="=box">
+            <table class="center">
+            <thead>
+                <tr> 
+                    <th class="gill-sans _size-5">Snowscript</th> 
+                    <th class="gill-sans _size-5">PHP</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='str'>No {magic} here\n</span><span class='pln'>
+</span><span class='str'>{nor()} here.</span><span class='pln'>
+</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">'No {magic} here\n';
+'''{nor()} here.''';
+</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+        <h class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Arrays
+        </h>
+        <p>Array are defined inside square brackets "[]". Items can be separated by  "," or by using whitespace. 
+Keys are stringy when using "=" as a separator, and interpreted when  using ":". 
+</p>
+        <div class="=box">
+            <table class="center">
+            <thead>
+                <tr> 
+                    <th class="gill-sans _size-5">Snowscript</th> 
+                    <th class="gill-sans _size-5">PHP</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='pln'>pianists</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='pun'>[</span><span class='str'>"</span><span class='str'>McCoy Tyner</span><span class='str'>"</span><span class='pun'>,</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Fred Hersch</span><span class='str'>"</span><span class='pun'>,</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Bill Evans</span><span class='str'>"</span><span class='pun'>]</span><span class='pln'>
+</span><span class='pln'>name</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Heroes</span><span class='str'>"</span><span class='pln'>
+</span><span class='pln'>series</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='pun'>[</span><span class='pln'>
+</span><span class='pln'>    </span><span class='pln'>name</span><span class='pun'>:</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>genre</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Science Fiction</span><span class='str'>"</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>creator</span><span class='pun'>:</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Tim Kring</span><span class='str'>"</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>seasons</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='lit'>4</span><span class='pln'>
+</span><span class='pln'>    </span><span class='pln'>Game</span><span class='pln'> </span><span class='pln'>Of</span><span class='pln'> </span><span class='pln'>Thrones</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>genre</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Medieval fantasy</span><span class='str'>"</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>creator</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='str'>"</span><span class='str'>David Benioff</span><span class='str'>"</span><span class='pln'>
+</span><span class='pln'>        </span><span class='pln'>seasons</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='lit'>2</span><span class='pln'>
+</span><span class='pun'>]</span><span class='pln'>
+</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">$pianists = array("McCoy Tyner", "Fred Hersch", "Bill Evans");
+$name = "Heroes";
+$series = array(
+    $name => array(
+        'genre' => "Science Fiction",
+        'creator' => "Tim Kring",
+        'seasons' => 4,
+    ),
+    "Game Of Thrones" => array(
+        'genre' => "Medieval fantasy",
+        'creator' => "David Benioff",
+        'seasons' => 2,
+    ),
+);
+</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
+            Loops
+        </h2>
+        
+        <div class="=box">
+            <table class="center">
+            <thead>
+                <tr> 
+                    <th class="gill-sans _size-5">Snowscript</th> 
+                    <th class="gill-sans _size-5">PHP</th> 
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint2"><span class='kwd'>for</span><span class='pln'> </span><span class='pln'>title</span><span class='pun'>,</span><span class='pln'> </span><span class='pln'>data</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='pln'>flowers</span><span class='pln'>
+</span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>{</span><span class='pln'>data</span><span class='pun'>.</span><span class='pln'>id</span><span class='str'>}</span><span class='str'>: title</span><span class='str'>"</span><span class='pln'>
+</span><span class='kwd'>for</span><span class='pln'> </span><span class='pun'>&</span><span class='pln'>n</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='pln'>numbers</span><span class='pln'>
+</span><span class='pln'>    </span><span class='pln'>n</span><span class='pln'> </span><span class='pun'>*=</span><span class='pln'> </span><span class='lit'>2</span><span class='pln'>
+
+</span><span class='kwd'>for</span><span class='pln'> </span><span class='pln'>i</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='lit'>1</span><span class='pln'> </span><span class='kwd'>to</span><span class='pln'> </span><span class='lit'>10</span><span class='pln'> </span><span class='kwd'>step</span><span class='pln'> </span><span class='lit'>2</span><span class='pln'>
+</span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='pln'>i</span><span class='pln'>
+</span><span class='kwd'>for</span><span class='pln'> </span><span class='pln'>i</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='lit'>10</span><span class='pln'> </span><span class='kwd'>downto</span><span class='pln'> </span><span class='lit'>1</span><span class='pln'>
+</span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='pln'>i</span><span class='pln'>
+</span></pre>
+                    </td>
+                    <td valign="top" cellpadding="0">
+                        <pre class="prettyprint">foreach ($flowers as $title => $data) {
+    echo $data->id . ": " . $title;
+}
+unset($title, $data);
+foreach ($numbers as $n) {
+    $n *= 2;
+}
+unset($n);
+
+for ($i=1, $i <= 10, $i+=2) {
+    echo $i;
+}
+unset($i);
+for ($i=10, $i >= 0, --$i) {
+    echo $i;
+}
+unset($i);
+</pre>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+                
         <div class="=row _text-center">
             <a href="http://example.com" class="gill-sans button _res-bottom-10">Read the <strong>docs</strong></a>
             <a href="https://github.com/runekaagaard/snowscript" class="gill-sans button"><strong>Get</strong> the code</a>
@@ -54,3 +318,4 @@
         <footer class="=row _text-center _size-6">A project by <a href="https://github.com/runekaagaard">Rune Kaagaard</a>. Design by <a target=_blank href=http://rolando.pe/>Rolando Murillo</a>.</footer>
     </body>
 </html>
+

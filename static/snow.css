@@ -161,16 +161,16 @@ h3.gill-sans, th.gill-sans {
 
 /* Code highlighting
 //////////////////// */
-.prettyprint .str { color: #08b; }
-.prettyprint .kwd { color: #EB004B; }
-.prettyprint .com, .prettyprint .pun { color: #77828C; }
-.prettyprint .typ { color: green; }
-.prettyprint .lit { color: #066; }
-.prettyprint .pln { color: #000; }
-.prettyprint .tag { color: #008; }
-.prettyprint .atn { color: #606; }
-.prettyprint .atv { color: #080; }
-.prettyprint .dec { color: #606; }
+.prettyprint .str, .prettyprint2 .str { color: #08b; }
+.prettyprint .kwd, .prettyprint2 .kwd { color: #EB004B; }
+.prettyprint .com, .prettyprint .pun, .prettyprint2 .com, .prettyprint2 .pun { color: #77828C; }
+.prettyprint .typ, .prettyprint2 .typ { color: green; }
+.prettyprint .lit, .prettyprint2 .lit { color: #066; }
+.prettyprint .pln, .prettyprint2 .pln { color: #000; }
+.prettyprint .tag, .prettyprint2 .tag { color: #008; }
+.prettyprint .atn, .prettyprint2 .atn { color: #606; }
+.prettyprint .atv, .prettyprint2 .atv { color: #080; }
+.prettyprint .dec, .prettyprint2 .dec { color: #606; }
 
 /* Responsive layout
 //////////////////// */
