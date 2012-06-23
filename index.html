@@ -46,115 +46,85 @@
         </div>
         
         
-        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Whitespace
-        </h2>
-        <p>Snowscript has significant whitespace, meaning that the code structure is  managed by indenting/dedenting and not by using brackets ({)}. Whitespace  is not significant inside comments, strings and brackets (() and []).
+        <div class="_bottom-20">
+            <h2 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Whitespace
+            </h2>
+            <p class="_text-center _bottom-10 _left-20 _right-20">Snowscript has significant whitespace, meaning that the code structure is  managed by indenting/dedenting and not by using brackets ({)}. Whitespace  is not significant inside comments, strings and brackets (() and []).
 </p>
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='kwd'>fn</span><span class='pln'> </span><span class='pln'>find_person</span><span class='pun'>(</span><span class='pln'>person</span><span class='pun'>)</span><span class='pln'>
+        </div>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='kwd'>fn</span><span class='pln'> </span><span class='pln'>find_person</span><span class='pun'>(</span><span class='pln'>person</span><span class='pun'>)</span><span class='pln'>
 </span><span class='pln'>    </span><span class='pun'><-</span><span class='pln'> </span><span class='pln'>access_third_eye</span><span class='pun'>(</span><span class='pln'>
 </span><span class='pln'>        </span><span class='pln'>person</span><span class='pun'>.</span><span class='pln'>name</span><span class='pun'>,</span><span class='pln'>
 </span><span class='pln'>        </span><span class='pln'>person</span><span class='pun'>.</span><span class='pln'>last_known_location</span><span class='pln'>
 </span><span class='pln'>    </span><span class='pun'>)</span><span class='pln'>
 </span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">function find_person($person) {
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">function find_person($person) {
     return access_third_eye(
         $person->name,
         $person->last_known_location
     );
 }
 </pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
+            </div>
+        </aside>
+        
+        <div class="_bottom-20">
+            <h2 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Comments
+            </h2>
+            
         </div>
-        
-        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Comments
-        </h2>
-        
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='pun'># Single line. echo a # Single line as docblock # echo b # This is a comment,</span><span class='pln'>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='pun'># Single line. echo a # Single line as docblock # echo b # This is a comment,</span><span class='pln'>
 
 </span><span class='pln'>  </span><span class='pln'>spanning</span><span class='pln'> </span><span class='pln'>multiple</span><span class='pln'> </span><span class='pln'>lines</span><span class='pun'>.</span><span class='pln'>
 </span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint"></pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2"></pre>
+            </div>
+        </aside>
         
-        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Strings
-        </h2>
-        <p>There are four kind of strings: '"""', '"', "'''" and "'". Whitespace before the 
+        <div class="_bottom-20">
+            <h2 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Strings
+            </h2>
+            <p class="_text-center _bottom-10 _left-20 _right-20">There are four kind of strings: '"""', '"', "'''" and "'". Whitespace before the 
 current indentation level is stripped. Strings can be concatenated using the "%"
 operator.
 </p>
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>I am</span><span class='str'>"</span><span class='pln'> </span><span class='pun'>%</span><span class='pln'> </span><span class='str'>"</span><span class='str'> legend!</span><span class='str'>"</span><span class='pun'>;</span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">echo "I am" . " legend!";</pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
         </div>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>I am</span><span class='str'>"</span><span class='pln'> </span><span class='pun'>%</span><span class='pln'> </span><span class='str'>"</span><span class='str'> legend!</span><span class='str'>"</span><span class='pun'>;</span></pre>
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">echo "I am" . " legend!";</pre>
+            </div>
+        </aside>
         
-        <h3 class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Quoted
-        </h3>
-        <p>Code inside "{}" adds their value to the string.</p>
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='kwd'>fn</span><span class='pln'> </span><span class='pln'>travel</span><span class='pln'>
+        <div class="_bottom-20">
+            <h3 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Quoted
+            </h3>
+            <p class="_text-center _bottom-10 _left-20 _right-20">Code inside "{}" adds their value to the string.</p>
+        </div>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='kwd'>fn</span><span class='pln'> </span><span class='pln'>travel</span><span class='pln'>
 </span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>
     The </span><span class='str'>{</span><span class='pln'>animal</span><span class='str'>}</span><span class='str'> went to </span><span class='str'>{</span><span class='pln'>world</span><span class='pun'>.</span><span class='pln'>place</span><span class='pun'>(</span><span class='pun'>)</span><span class='str'>}</span><span class='str'>
     with his </span><span class='str'>{</span><span class='pln'>NUM</span><span class='str'>}</span><span class='str'> friends. 
@@ -162,68 +132,52 @@ operator.
 
 </span><span class='str'>"</span><span class='str'>"</span><span class='str'>"</span><span class='str'><a href=</span><span class='str'>"</span><span class='pln'>https</span><span class='pun'>:</span><span class='pun'>/</span><span class='pun'>/</span><span class='pln'>snowscript</span><span class='pun'>.</span><span class='pln'>org</span><span class='str'>"</span><span class='str'>>Snowscript</a></span><span class='str'>\</span><span class='str'>n</span><span class='str'>"</span><span class='str'>"</span><span class='str'>"</span><span class='pln'>
 </span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">function travel() {
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">function travel() {
     echo "The " . $animal . " went to " . $world->place() . "\n"
     " with his " . NUM  . " friends.";
     
 }
 "<a href=\"https://snowscript.org\">Snowscript</a>\n";
 </pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
+            </div>
+        </aside>
+        
+        <div class="_bottom-20">
+            <h3 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Unquoted
+            </h3>
+            
         </div>
-        
-        <h3 class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Unquoted
-        </h3>
-        
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='str'>No {magic} here\n</span><span class='pln'>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='str'>No {magic} here\n</span><span class='pln'>
 </span><span class='str'>{nor()} here.</span><span class='pln'>
 </span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">'No {magic} here\n';
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">'No {magic} here\n';
 '''{nor()} here.''';
 </pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
+            </div>
+        </aside>
         
-        <h class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Arrays
-        </h>
-        <p>Array are defined inside square brackets "[]". Items can be separated by  "," or by using whitespace. 
+        <div class="_bottom-20">
+            <h2 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Arrays
+            </h2>
+            <p class="_text-center _bottom-10 _left-20 _right-20">Array are defined inside square brackets "[]". Items can be separated by  "," or by using whitespace. 
 Keys are stringy when using "=" as a separator, and interpreted when  using ":". 
 </p>
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='pln'>pianists</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='pun'>[</span><span class='str'>"</span><span class='str'>McCoy Tyner</span><span class='str'>"</span><span class='pun'>,</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Fred Hersch</span><span class='str'>"</span><span class='pun'>,</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Bill Evans</span><span class='str'>"</span><span class='pun'>]</span><span class='pln'>
+        </div>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='pln'>pianists</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='pun'>[</span><span class='str'>"</span><span class='str'>McCoy Tyner</span><span class='str'>"</span><span class='pun'>,</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Fred Hersch</span><span class='str'>"</span><span class='pun'>,</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Bill Evans</span><span class='str'>"</span><span class='pun'>]</span><span class='pln'>
 </span><span class='pln'>name</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='str'>"</span><span class='str'>Heroes</span><span class='str'>"</span><span class='pln'>
 </span><span class='pln'>series</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='pun'>[</span><span class='pln'>
 </span><span class='pln'>    </span><span class='pln'>name</span><span class='pun'>:</span><span class='pln'>
@@ -236,9 +190,10 @@ Keys are stringy when using "=" as a separator, and interpreted when  using ":".
 </span><span class='pln'>        </span><span class='pln'>seasons</span><span class='pln'> </span><span class='pun'>=</span><span class='pln'> </span><span class='lit'>2</span><span class='pln'>
 </span><span class='pun'>]</span><span class='pln'>
 </span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">$pianists = array("McCoy Tyner", "Fred Hersch", "Bill Evans");
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">$pianists = array("McCoy Tyner", "Fred Hersch", "Bill Evans");
 $name = "Heroes";
 $series = array(
     $name => array(
@@ -253,28 +208,19 @@ $series = array(
     ),
 );
 </pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
+            </div>
+        </aside>
+        
+        <div class="_bottom-20">
+            <h2 class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                Loops
+            </h2>
+            
         </div>
-        
-        <h2 class="gill-sans _size-3 _res-size-4 =row _text-center">
-            Loops
-        </h2>
-        
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2"><span class='kwd'>for</span><span class='pln'> </span><span class='pln'>title</span><span class='pun'>,</span><span class='pln'> </span><span class='pln'>data</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='pln'>flowers</span><span class='pln'>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2"><span class='kwd'>for</span><span class='pln'> </span><span class='pln'>title</span><span class='pun'>,</span><span class='pln'> </span><span class='pln'>data</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='pln'>flowers</span><span class='pln'>
 </span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='str'>"</span><span class='str'>{</span><span class='pln'>data</span><span class='pun'>.</span><span class='pln'>id</span><span class='str'>}</span><span class='str'>: title</span><span class='str'>"</span><span class='pln'>
 </span><span class='kwd'>for</span><span class='pln'> </span><span class='pun'>&</span><span class='pln'>n</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='pln'>numbers</span><span class='pln'>
 </span><span class='pln'>    </span><span class='pln'>n</span><span class='pln'> </span><span class='pun'>*=</span><span class='pln'> </span><span class='lit'>2</span><span class='pln'>
@@ -284,9 +230,10 @@ $series = array(
 </span><span class='kwd'>for</span><span class='pln'> </span><span class='pln'>i</span><span class='pln'> </span><span class='kwd'>in</span><span class='pln'> </span><span class='lit'>10</span><span class='pln'> </span><span class='kwd'>downto</span><span class='pln'> </span><span class='lit'>1</span><span class='pln'>
 </span><span class='pln'>    </span><span class='kwd'>echo</span><span class='pln'> </span><span class='pln'>i</span><span class='pln'>
 </span></pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">foreach ($flowers as $title => $data) {
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">foreach ($flowers as $title => $data) {
     echo $data->id . ": " . $title;
 }
 unset($title, $data);
@@ -304,11 +251,8 @@ for ($i=10, $i >= 0, --$i) {
 }
 unset($i);
 </pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
+            </div>
+        </aside>
         
                 
         <div class="=row _text-center">

@@ -48,6 +48,9 @@ a {
 pre, code, tt {
     font: 11px/1.75 monaco, monospace;
 }
+pre {
+    padding: 0 20px;
+}
 
 td {
     padding: 20px;
@@ -135,6 +138,7 @@ h3.gill-sans, th.gill-sans {
 }
 
 .\=box {
+    overflow: hidden;
     padding: 30px 5px;
     background-color: #DDF1FF;
     background-image: -webkit-linear-gradient(#DDF1FF, #C7E9FF);
@@ -159,6 +163,10 @@ h3.gill-sans, th.gill-sans {
     margin: 0 10px;
 }
 
+th {
+    width: 50%;
+}
+
 /* Code highlighting
 //////////////////// */
 .prettyprint .str, .prettyprint2 .str { color: #08b; }
@@ -171,6 +179,60 @@ h3.gill-sans, th.gill-sans {
 .prettyprint .atn, .prettyprint2 .atn { color: #606; }
 .prettyprint .atv, .prettyprint2 .atv { color: #080; }
 .prettyprint .dec, .prettyprint2 .dec { color: #606; }
+
+/*/////////////////////////////////////
+TINY GRID by Rolando Murillo (@rnmp)
+=======================================
+This is a micro-grid, CSS3 only.
+Use Selectivizr for lame browsers.
+/////////////////////////////////////*/
+
+._one-quarter, ._one-third, ._one-half,
+._two-thirds, ._three-quarters {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+._column {
+    float: left;
+}
+
+/* SIZES
+//////*/
+
+._one-quarter    { width: 25%; }
+._one-third      { width: 33.333%; }
+._one-half       { width: 50%; }
+._two-thirds     { width: 66.666%; }
+._three-quarters { width: 75%; }
+
+/* LAYOUTS 
+////////*/
+
+/* Two columns */
+._two-cols > ._column:nth-of-type(odd) {
+    padding-right: 15px;
+}
+._two-cols > ._column:nth-of-type(even) {
+    padding-left: 15px;
+}
+
+/* Three columns */
+._three-cols > ._column:nth-of-type(3n),
+._three-cols > ._column:nth-of-type(3n+1) {
+    padding: 0 20px;
+}
+._three-cols > ._column:nth-of-type(3n) {
+    padding-right: 0;
+}
+._three-cols > ._column:nth-of-type(3n+1) {
+    clear: both;
+    padding-left: 0;
+}
+._three-cols > ._column:nth-of-type(3n-1) {
+    padding: 0 10px;
+}
 
 /* Responsive layout
 //////////////////// */

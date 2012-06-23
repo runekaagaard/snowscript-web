@@ -46,30 +46,22 @@
         </div>
         
         {% for title,section in sections.iteritems() %}
-        <h{{ section.header_level }} class="gill-sans _size-3 _res-size-4 =row _text-center">
-            {{ title }}
-        </h{{ section.header_level }}>
-        {% if section.description %}<p>{{ section.description }}</p>{% endif %}
-        <div class="=box">
-            <table class="center">
-            <thead>
-                <tr> 
-                    <th class="gill-sans _size-5">Snowscript</th> 
-                    <th class="gill-sans _size-5">PHP</th> 
-                </tr> 
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint2">{{ section.snowscript }}</pre>
-                    </td>
-                    <td valign="top" cellpadding="0">
-                        <pre class="prettyprint">{{ section.php }}</pre>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
+        <div class="_bottom-20">
+            <h{{ section.header_level }} class="gill-sans _size-3 _res-size-4 _text-center _bottom-10">
+                {{ title }}
+            </h{{ section.header_level }}>
+            {% if section.description %}<p class="_text-center _bottom-10 _left-20 _right-20">{{ section.description }}</p>{% endif %}
         </div>
+        <aside class="=box _two-cols _bottom-30">
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">Snowscript</h4> 
+                <pre class="prettyprint2">{{ section.snowscript }}</pre>
+            </div>
+            <div class="_column _one-half">
+                <h4 class="gill-sans _size-5 _text-center _bottom-10">PHP</h4> 
+                <pre class="prettyprint2">{{ section.php }}</pre>
+            </div>
+        </aside>
         {% endfor %}
                 
         <div class="=row _text-center">
